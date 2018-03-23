@@ -10,7 +10,7 @@
   <meta name="description" content="blogs">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://barry.com/index.html">
+<meta property="og:url" content="http://mnmnwq.github.io/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="blogs">
 <meta property="og:locale" content="zh-CN">
@@ -41,7 +41,7 @@
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Barry&#39;s blogs</a>
+          <a href="/" id="subtitle">白伟的博客</a>
         </h2>
       
     </div>
@@ -61,13 +61,64 @@
         <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://barry.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://mnmnwq.github.io"></form>
       </div>
     </div>
   </div>
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-解决虚拟机硬盘占用过大，导致物理机很卡的问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/" class="article-date">
+  <time datetime="2018-03-23T02:00:00.000Z" itemprop="datePublished">2018-03-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/">解决虚拟机硬盘占用过大，导致物理机很卡的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre>非固态硬盘的电脑，开启虚拟机时候可能会遇到虚拟机占用磁盘资源过高的问题。在使用虚拟机黑苹果时候尤其明显。
+我是在虚拟机vm11和vm12上进行的操作，其他版本不知。
+结局方法如下：【这个解决方法是我在别人的博客上找的，希望能帮到别人】
+处理vmdk目录下的vmem文件，vmem文件相当于系统里的分页文件，虚拟机开机的时候生成这个文件硬盘读写导致硬盘灯常亮，很卡很慢，这个文件在关闭虚拟机的时候又会自动删除。
+如果物理机内存足够大的话可以把这个文件去掉。
+（1）对所有的虚拟机“禁用”vmem文件操作：
+修改C:\Documents and Settings\All Users\Application Data\VMware\VMware Workstation\settings.ini文件，（如果没有这个文件的话手工添加一个），在其中加上一行：mainMem.useNamedFile = "FALSE"
+（2）对特定的虚拟机“禁用”vmem文件
+修改特定虚拟机目录下的vmx文件，在其中加上一行：mainMem.useNamedFile = "FALSE"
+这样就不会产生VMEM文件了，还添加了以下内容优化了虚拟机（主机要有足够的物理内存）
+sched.mem.pshare.enable = "FALSE"
+MemTrimRate = 0
+</pre>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://mnmnwq.github.io/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/" data-id="cjf3ddn1y0002vawq6ma9uvlb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-修改mac的默认php" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -96,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://barry.com/2018/02/19/修改mac的默认php/" data-id="cjdu2uq3b0004dvwq3pxutv14" class="article-share-link">Share</a>
+      <a data-url="http://mnmnwq.github.io/2018/02/19/修改mac的默认php/" data-id="cjf3ddn1z0003vawqhpqpuwhc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -133,7 +184,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://barry.com/2018/02/15/first-one/" data-id="cjdu2uq330000dvwqf1as3hho" class="article-share-link">Share</a>
+      <a data-url="http://mnmnwq.github.io/2018/02/15/first-one/" data-id="cjf3ddn1w0001vawqy7reoih3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -178,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://barry.com/2018/02/15/hello-world/" data-id="cjdu2uq370002dvwqu4nt5d7d" class="article-share-link">Share</a>
+      <a data-url="http://mnmnwq.github.io/2018/02/15/hello-world/" data-id="cjf3ddn1s0000vawq1z9ju6q1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -206,7 +257,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li></ul>
     </div>
   </div>
 
@@ -217,6 +268,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/">解决虚拟机硬盘占用过大，导致物理机很卡的问题</a>
+          </li>
         
           <li>
             <a href="/2018/02/19/修改mac的默认php/">修改mac的默认php</a>
