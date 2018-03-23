@@ -7,17 +7,17 @@
   
   <title>解决虚拟机硬盘占用过大，导致物理机很卡的问题 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="非固态硬盘的电脑，开启虚拟机时候可能会遇到虚拟机占用磁盘资源过高的问题。在使用虚拟机黑苹果时候尤其明显。 我是在虚拟机vm11和vm12上进行的操作，其他版本不知。 结局方法如下：【这个解决方法是我在别人的博客上找的，希望能帮到别人】 处理vmdk目录下的vmem文件，vmem文件相当于系统里的分页文件，虚拟机开机的时候生成这个文件硬盘读写导致硬盘灯常亮，很卡很慢，这个文件在关闭虚拟机的时候又会自">
+  <meta name="description" content="非固态硬盘的电脑，开启虚拟机时候可能会遇到虚拟机占用磁盘资源过高的问题。在使用虚拟机黑苹果时候尤其明显。  我是在虚拟机vm11和vm12上进行的操作，其他版本不知。  解决方法如下：【这个解决方法是我在别人的博客上找的，希望能帮到别人】 处理vmdk目录下的vmem文件，vmem文件相当于系统里的分页文件，虚拟机开机的时候生成这个文件硬盘读写导致硬盘灯常亮，很卡很慢，这个文件在关闭虚拟机的时候又">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决虚拟机硬盘占用过大，导致物理机很卡的问题">
 <meta property="og:url" content="http://mnmnwq.github.io/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="非固态硬盘的电脑，开启虚拟机时候可能会遇到虚拟机占用磁盘资源过高的问题。在使用虚拟机黑苹果时候尤其明显。 我是在虚拟机vm11和vm12上进行的操作，其他版本不知。 结局方法如下：【这个解决方法是我在别人的博客上找的，希望能帮到别人】 处理vmdk目录下的vmem文件，vmem文件相当于系统里的分页文件，虚拟机开机的时候生成这个文件硬盘读写导致硬盘灯常亮，很卡很慢，这个文件在关闭虚拟机的时候又会自">
+<meta property="og:description" content="非固态硬盘的电脑，开启虚拟机时候可能会遇到虚拟机占用磁盘资源过高的问题。在使用虚拟机黑苹果时候尤其明显。  我是在虚拟机vm11和vm12上进行的操作，其他版本不知。  解决方法如下：【这个解决方法是我在别人的博客上找的，希望能帮到别人】 处理vmdk目录下的vmem文件，vmem文件相当于系统里的分页文件，虚拟机开机的时候生成这个文件硬盘读写导致硬盘灯常亮，很卡很慢，这个文件在关闭虚拟机的时候又">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-23T03:10:55.219Z">
+<meta property="og:updated_time" content="2018-03-23T03:25:42.632Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决虚拟机硬盘占用过大，导致物理机很卡的问题">
-<meta name="twitter:description" content="非固态硬盘的电脑，开启虚拟机时候可能会遇到虚拟机占用磁盘资源过高的问题。在使用虚拟机黑苹果时候尤其明显。 我是在虚拟机vm11和vm12上进行的操作，其他版本不知。 结局方法如下：【这个解决方法是我在别人的博客上找的，希望能帮到别人】 处理vmdk目录下的vmem文件，vmem文件相当于系统里的分页文件，虚拟机开机的时候生成这个文件硬盘读写导致硬盘灯常亮，很卡很慢，这个文件在关闭虚拟机的时候又会自">
+<meta name="twitter:description" content="非固态硬盘的电脑，开启虚拟机时候可能会遇到虚拟机占用磁盘资源过高的问题。在使用虚拟机黑苹果时候尤其明显。  我是在虚拟机vm11和vm12上进行的操作，其他版本不知。  解决方法如下：【这个解决方法是我在别人的博客上找的，希望能帮到别人】 处理vmdk目录下的vmem文件，vmem文件相当于系统里的分页文件，虚拟机开机的时候生成这个文件硬盘读写导致硬盘灯常亮，很卡很慢，这个文件在关闭虚拟机的时候又">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -90,26 +90,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <pre>非固态硬盘的电脑，开启虚拟机时候可能会遇到虚拟机占用磁盘资源过高的问题。在使用虚拟机黑苹果时候尤其明显。
-我是在虚拟机vm11和vm12上进行的操作，其他版本不知。
-结局方法如下：【这个解决方法是我在别人的博客上找的，希望能帮到别人】
-处理vmdk目录下的vmem文件，vmem文件相当于系统里的分页文件，虚拟机开机的时候生成这个文件硬盘读写导致硬盘灯常亮，很卡很慢，这个文件在关闭虚拟机的时候又会自动删除。
-如果物理机内存足够大的话可以把这个文件去掉。
-（1）对所有的虚拟机“禁用”vmem文件操作：
-修改C:\Documents and Settings\All Users\Application Data\VMware\VMware Workstation\settings.ini文件，（如果没有这个文件的话手工添加一个），在其中加上一行：mainMem.useNamedFile = "FALSE"
-（2）对特定的虚拟机“禁用”vmem文件
-修改特定虚拟机目录下的vmx文件，在其中加上一行：mainMem.useNamedFile = "FALSE"
-这样就不会产生VMEM文件了，还添加了以下内容优化了虚拟机（主机要有足够的物理内存）
-sched.mem.pshare.enable = "FALSE"
-MemTrimRate = 0
-</pre>
-
-
+        <p>非固态硬盘的电脑，开启虚拟机时候可能会遇到虚拟机占用磁盘资源过高的问题。在使用虚拟机黑苹果时候尤其明显。</p>
+<ul>
+<li>我是在虚拟机vm11和vm12上进行的操作，其他版本不知。</li>
+</ul>
+<p>解决方法如下：【这个解决方法是我在别人的博客上找的，希望能帮到别人】</p>
+<p>处理vmdk目录下的vmem文件，vmem文件相当于系统里的分页文件，虚拟机开机的时候生成这个文件硬盘读写导致硬盘灯常亮，很卡很慢，这个文件在关闭虚拟机的时候又会自动删除。<br>如果物理机内存足够大的话可以把这个文件去掉。</p>
+<p>（1）对所有的虚拟机“禁用”vmem文件操作：</p>
+<blockquote>
+<p>   修改C:\Documents and Settings\All Users\Application &gt;Data\VMware\VMware Workstation\settings.ini文件，（如果没有这个文件的话手工添加一个），在其中加上一行：mainMem.useNamedFile = “FALSE”</p>
+</blockquote>
+<p>（2）对特定的虚拟机“禁用”vmem文件</p>
+<blockquote>
+<p>   修改特定虚拟机目录下的vmx文件，在其中加上一行：mainMem.useNamedFile = “FALSE”<br>    这样就不会产生VMEM文件了，还添加了以下内容优化了虚拟机（主机要有足够的物理内存）<br>    sched.mem.pshare.enable = “FALSE”<br>    MemTrimRate = 0</p>
+</blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mnmnwq.github.io/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/" data-id="cjf3ddn1y0002vawq6ma9uvlb" class="article-share-link">Share</a>
+      <a data-url="http://mnmnwq.github.io/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/" data-id="cjf3de5bx0005vlwqo8rmfy6o" class="article-share-link">Share</a>
       
       
     </footer>
