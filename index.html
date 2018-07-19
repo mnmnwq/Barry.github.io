@@ -1,24 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
+  <meta charset="utf-8">
+  
 
-    
-
-    
-
-
-
-    <meta charset="utf-8">
-    
-    
-    
-    <title>Hexo | 白伟的博客</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    
-    <meta name="keywords" content="">
-    <meta name="description" content="blogs">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="blogs">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://mnmnwq.github.io/index.html">
@@ -28,274 +17,311 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
 <meta name="twitter:description" content="blogs">
-    
-        <link rel="alternate" type="application/atom+xml" title="Hexo" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/">
-    <link rel="stylesheet" href="/css/style.css?v=0.5.1">
-    <script>window.lazyScripts=[]</script>
-
-    <!-- custom head -->
-    
-
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <div id="loading" class="active"></div>
-
-    <div class="inner flex-row-vertical">
-  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-      <i class="icon icon-lg icon-close"></i>
-  </a>
-  <div class="brand-wrap">
-    <div class="brand">
-      <a href="/" class="avatar"><img src=""></a>
-      <hgroup class="introduce">
-        <h5 class="nickname">Barry</h5>
-        <a href="mailto:undefined" class="mail">
-      </hgroup>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">白伟的博客</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://mnmnwq.github.io"></form>
+      </div>
     </div>
   </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-解决虚拟机硬盘占用过大，导致物理机很卡的问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/" class="article-date">
+  <time datetime="2018-03-23T02:00:00.000Z" itemprop="datePublished">2018-03-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/">解决虚拟机硬盘占用过大，导致物理机很卡的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>非固态硬盘的电脑，开启虚拟机时候可能会遇到虚拟机占用磁盘资源过高的问题。在使用虚拟机黑苹果时候尤其明显。</p>
+<ul>
+<li>我是在虚拟机vm11和vm12上进行的操作，其他版本不知。</li>
+</ul>
+<p>解决方法如下：【这个解决方法是我在别人的博客上找的，希望能帮到别人】</p>
+<p>处理vmdk目录下的vmem文件，vmem文件相当于系统里的分页文件，虚拟机开机的时候生成这个文件硬盘读写导致硬盘灯常亮，很卡很慢，这个文件在关闭虚拟机的时候又会自动删除。<br>如果物理机内存足够大的话可以把这个文件去掉。</p>
+<p>（1）对所有的虚拟机“禁用”vmem文件操作：</p>
+<blockquote>
+<p>   修改C:\Documents and Settings\All Users\Application &gt;Data\VMware\VMware Workstation\settings.ini文件，（如果没有这个文件的话手工添加一个），在其中加上一行：mainMem.useNamedFile = “FALSE”</p>
+</blockquote>
+<p>（2）对特定的虚拟机“禁用”vmem文件</p>
+<blockquote>
+<p>   修改特定虚拟机目录下的vmx文件，在其中加上一行：mainMem.useNamedFile = “FALSE”<br>    这样就不会产生VMEM文件了，还添加了以下内容优化了虚拟机（主机要有足够的物理内存）<br>    sched.mem.pshare.enable = “FALSE”<br>    MemTrimRate = 0</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://mnmnwq.github.io/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/" data-id="cjjsjw6fj0005zlwq4ix3xlbw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-修改mac的默认php" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/19/修改mac的默认php/" class="article-date">
+  <time datetime="2018-02-19T10:25:55.000Z" itemprop="datePublished">2018-02-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/19/修改mac的默认php/">修改mac的默认php</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#11111111111111111111111</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://mnmnwq.github.io/2018/02/19/修改mac的默认php/" data-id="cjjsjw6fi0004zlwqynj0158k" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-first-one" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/15/first-one/" class="article-date">
+  <time datetime="2018-02-14T23:51:30.000Z" itemprop="datePublished">2018-02-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/15/first-one/">first one</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>你好！欢迎来到我的个人blog</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://mnmnwq.github.io/2018/02/15/first-one/" data-id="cjjsjw6f90000zlwqqj0ivjur" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/15/hello-world/" class="article-date">
+  <time datetime="2018-02-14T23:43:37.708Z" itemprop="datePublished">2018-02-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/15/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://mnmnwq.github.io/2018/02/15/hello-world/" data-id="cjjsjw6ff0002zlwq55vi2lm7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/">解决虚拟机硬盘占用过大，导致物理机很卡的问题</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/19/修改mac的默认php/">修改mac的默认php</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/15/first-one/">first one</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/15/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
 </aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">Hexo</div>
         
-        
-    </div>
-</header>
-<header class="content-header index-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">Hexo</h1>
-        <h5 class="subtitle">
-            
-                白伟的博客
-            
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-<div class="container body-wrap">
-
-    <ul class="post-list">
-    
-        <li class="post-list-item fade">
-            <article id="post-解决虚拟机硬盘占用过大，导致物理机很卡的问题"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-03-23 10:00:00" datetime="2018-03-23T02:00:00.000Z"  itemprop="datePublished">2018-03-23</time>
-
-        
-
-
-    </div>
-
-    
-
-
+      </div>
+      <footer id="footer">
   
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/">解决虚拟机硬盘占用过大，导致物理机很卡的问题</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        非固态硬盘的电脑，开启虚拟机时候可能会遇到虚拟机占用磁...
-    
-
-        <a href="/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Barry<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-修改mac的默认php"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-02-19 18:25:55" datetime="2018-02-19T10:25:55.000Z"  itemprop="datePublished">2018-02-19</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/02/19/修改mac的默认php/">修改mac的默认php</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        #11111111111111111111111
-
-    
-
-        <a href="/2018/02/19/修改mac的默认php/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-first-one"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-02-15 07:51:30" datetime="2018-02-14T23:51:30.000Z"  itemprop="datePublished">2018-02-15</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/02/15/first-one/">first one</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        你好！欢迎来到我的个人blog
-
-    
-
-        <a href="/2018/02/15/first-one/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-hello-world"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-02-15 07:43:37" datetime="2018-02-14T23:43:37.708Z"  itemprop="datePublished">2018-02-15</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/02/15/hello-world/">Hello World</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        Welcome to Hexo! This is yo...
-    
-
-        <a href="/2018/02/15/hello-world/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-    </ul>
-
-    
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
-        
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>Barry &copy; 2018</span>
-            <span>
-                
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
+  </div>
 </footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: , REWARD: false };
-
-
-</script>
-
-<script src="/js/main.min.js?v=0.5.1"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-
-
+<script src="/js/script.js"></script>
 
 
 
-
+  </div>
 </body>
 </html>
