@@ -1,170 +1,50 @@
-<!DOCTYPE html>
-<html>
-<head>
-    
+{% extends "_layout.njk" %}
 
-    
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for("css/page.css") }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for("css/archive.css") }}">
+{% endblock %}
 
-    
+{% block title %}{{ __("archive") }} | {{ config.title }}{% if config.subtitle %} - {{ config.subtitle }}{% endif %}{% endblock %}
 
-
-
-    <meta charset="utf-8">
-    
-    
-    
-    <title>Archives: 2018/3 | Hexo | 白伟的博客</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    
-    <meta name="keywords" content="">
-    <meta name="description" content="blogs">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://mnmnwq.github.io/archives/2018/03/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="blogs">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="blogs">
-    
-        <link rel="alternate" type="application/atom+xml" title="Hexo" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/">
-    <link rel="stylesheet" href="/css/style.css?v=0.5.1">
-    <script>window.lazyScripts=[]</script>
-
-    <!-- custom head -->
-    
-
-</head>
-
-<body>
-    <div id="loading" class="active"></div>
-
-    <div class="inner flex-row-vertical">
-  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-      <i class="icon icon-lg icon-close"></i>
-  </a>
-  <div class="brand-wrap">
-    <div class="brand">
-      <a href="/" class="avatar"><img src=""></a>
-      <hgroup class="introduce">
-        <h5 class="nickname">Barry</h5>
-        <a href="mailto:undefined" class="mail">
-      </hgroup>
-    </div>
-  </div>
-</aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis"></div>
-        
-        
-    </div>
-</header>
-<header class="content-header archives-header">
-
-    <div class="container fade-scale">
-        <h1 class="title"></h1>
-        <h5 class="subtitle">
-            
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-<div class="container body-wrap fade">
-    
-
-    
-            
-            <h3 class="archive-separator">三月, 2018</h3>
-            <div class="waterfall">
-    
-
-        <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time class="post-time" title="2018-03-23 10:00:00" datetime="2018-03-23T02:00:00.000Z"  itemprop="datePublished">2018-03-23</time>
-
-      
-
-
-    </div>
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/">解决虚拟机硬盘占用过大，导致物理机很卡的问题</a>
-    </h3>
-  
-
-
-
-    
+{% block content %}
+<div id="archive" class="archive">
+  <h1 class="archive-counter">
+    {% if site.posts.length > 1 %}
+    {{ _p("postcount.more", site.posts.length) }}
+    {% elif site.posts.length === 1 %}
+    {{ _p("postcount.one", site.posts.length) }}
+    {% else %}
+    {{ __("postcount.none") }}
+    {% endif %}
+  </h1>
+  {% set year = "1970" %}
+  {% for post in page.posts.toArray() %}
+  {% if date(post.date, "YYYY") !== year %}
+  {% set year = date(post.date, "YYYY") %}
+  <h1 class="archive-title">{{ year }}</h1>
+  {% endif %}
+  <article class="archive-article card{% if theme.animate %} animate{% endif %}" itemscope itemtype="http://schema.org/Article">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-title-link post-title-link-external" href="{{ url_for(post.path) }}" itemprop="url">{{ post.title }}</a>
+    </h1>
+    {% if post.date %}
+    <span class="post-date">
+      <time title="post-date" itemprop="dateCreated datePublished" datetime="{{ moment(post.date).format() }}">{{ date(post.date, "MM-DD") }}</time>
+    </span>
+    {% endif %}
   </article>
+  {% endfor %}
+  {% if page.prev or page.next %}
+  <nav class="pagination">
+    {{
+      paginator({
+        prev_text: "<i class=\"fas fa-angle-left\"></i>",
+        next_text: "<i class=\"fas fa-angle-right\"></i>",
+        mid_size: 1
+      })
+    }}
+  </nav>
+  {% endif %}
 </div>
-
-    
-    </div>
-
-    
-</div>
-
-        <footer class="footer">
-    <div class="top">
-        
-
-        <p>
-            
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>Barry &copy; 2018</span>
-            <span>
-                
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-</footer>
-
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: , REWARD: false };
-
-
-</script>
-
-<script src="/js/main.min.js?v=0.5.1"></script>
-
-
-
-
-
-
-
-
-
-
-</body>
-</html>
+{% endblock %}
