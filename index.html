@@ -69,6 +69,57 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ubuntu安装samba服务器，实现局域网目录共享" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/22/ubuntu安装samba服务器，实现局域网目录共享/" class="article-date">
+  <time datetime="2018-07-22T08:09:12.000Z" itemprop="datePublished">2018-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/22/ubuntu安装samba服务器，实现局域网目录共享/">ubuntu安装samba服务器，实现局域网目录共享</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>命令：</p>
+<blockquote>
+<p>sudo apt-get install samba<br>sudo vi /etc/samba/smb.conf</p>
+</blockquote>
+<p>配置文件末尾加上：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[share]</span><br><span class="line">comment = samba  #说明 没有意义</span><br><span class="line">browseable = yes</span><br><span class="line">path = /home/wwwroot/</span><br><span class="line">create mask = 0777</span><br><span class="line">directory mask = 0777</span><br><span class="line">valid users = www  #用户，登陆用</span><br><span class="line">force user = root</span><br><span class="line">force group = root</span><br><span class="line">public = yes</span><br><span class="line">writable = yes</span><br><span class="line">available = yes</span><br></pre></td></tr></table></figure>
+<p>命令：</p>
+<blockquote>
+<p>sudo /etc/init.d restart</p>
+</blockquote>
+<p>添加samba用户</p>
+<blockquote>
+<p>sudo smbpasswd -a www<br>sudo smbpasswd -e www</p>
+</blockquote>
+<p>打开windows运行输入\192.169.0.120\share\<br>输入用户名和密码  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://mnmnwq.github.io/2018/07/22/ubuntu安装samba服务器，实现局域网目录共享/" data-id="cjjwkbjuv00004hwqh3udu2so" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-解决虚拟机硬盘占用过大，导致物理机很卡的问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/" class="article-date">
@@ -109,7 +160,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mnmnwq.github.io/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/" data-id="cjjsjxebq000400wq0hos0ym6" class="article-share-link">Share</a>
+      <a data-url="http://mnmnwq.github.io/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/" data-id="cjjwkbjuz00024hwqpm78w7qq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -146,7 +197,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mnmnwq.github.io/2018/02/19/修改mac的默认php/" data-id="cjjsjxebp000300wqanoc3ip5" class="article-share-link">Share</a>
+      <a data-url="http://mnmnwq.github.io/2018/02/19/修改mac的默认php/" data-id="cjjwkbjv100044hwq5bk666ba" class="article-share-link">Share</a>
       
       
     </footer>
@@ -183,7 +234,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mnmnwq.github.io/2018/02/15/first-one/" data-id="cjjsjxebi000000wqnqbm7qu2" class="article-share-link">Share</a>
+      <a data-url="http://mnmnwq.github.io/2018/02/15/first-one/" data-id="cjjwkbjv200054hwq4g8v3j4i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -228,7 +279,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mnmnwq.github.io/2018/02/15/hello-world/" data-id="cjjsjxebn000200wqykvil3kr" class="article-share-link">Share</a>
+      <a data-url="http://mnmnwq.github.io/2018/02/15/hello-world/" data-id="cjjwkbjv300064hwqshpkjnie" class="article-share-link">Share</a>
       
       
     </footer>
@@ -256,7 +307,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li></ul>
     </div>
   </div>
 
@@ -267,6 +318,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/07/22/ubuntu安装samba服务器，实现局域网目录共享/">ubuntu安装samba服务器，实现局域网目录共享</a>
+          </li>
         
           <li>
             <a href="/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/">解决虚拟机硬盘占用过大，导致物理机很卡的问题</a>

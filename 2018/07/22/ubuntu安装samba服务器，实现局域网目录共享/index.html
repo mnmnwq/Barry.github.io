@@ -5,19 +5,19 @@
   
 
   
-  <title>修改mac的默认php | Hexo</title>
+  <title>ubuntu安装samba服务器，实现局域网目录共享 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#11111111111111111111111">
+  <meta name="description" content="命令：  sudo apt-get install sambasudo vi /etc/samba/smb.conf  配置文件末尾加上： 123456789101112[share]comment = samba  #说明 没有意义browseable = yespath = /home/wwwroot/create mask = 0777directory mask = 0777valid u">
 <meta property="og:type" content="article">
-<meta property="og:title" content="修改mac的默认php">
-<meta property="og:url" content="http://mnmnwq.github.io/2018/02/19/修改mac的默认php/index.html">
+<meta property="og:title" content="ubuntu安装samba服务器，实现局域网目录共享">
+<meta property="og:url" content="http://mnmnwq.github.io/2018/07/22/ubuntu安装samba服务器，实现局域网目录共享/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="#11111111111111111111111">
+<meta property="og:description" content="命令：  sudo apt-get install sambasudo vi /etc/samba/smb.conf  配置文件末尾加上： 123456789101112[share]comment = samba  #说明 没有意义browseable = yespath = /home/wwwroot/create mask = 0777directory mask = 0777valid u">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-02-19T10:28:47.427Z">
+<meta property="og:updated_time" content="2018-07-22T08:10:01.352Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="修改mac的默认php">
-<meta name="twitter:description" content="#11111111111111111111111">
+<meta name="twitter:title" content="ubuntu安装samba服务器，实现局域网目录共享">
+<meta name="twitter:description" content="命令：  sudo apt-get install sambasudo vi /etc/samba/smb.conf  配置文件末尾加上： 123456789101112[share]comment = samba  #说明 没有意义browseable = yespath = /home/wwwroot/create mask = 0777directory mask = 0777valid u">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -68,10 +68,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-修改mac的默认php" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-ubuntu安装samba服务器，实现局域网目录共享" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/02/19/修改mac的默认php/" class="article-date">
-  <time datetime="2018-02-19T10:25:55.000Z" itemprop="datePublished">2018-02-19</time>
+    <a href="/2018/07/22/ubuntu安装samba服务器，实现局域网目录共享/" class="article-date">
+  <time datetime="2018-07-22T08:09:12.000Z" itemprop="datePublished">2018-07-22</time>
 </a>
     
   </div>
@@ -82,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      修改mac的默认php
+      ubuntu安装samba服务器，实现局域网目录共享
     </h1>
   
 
@@ -90,12 +90,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#11111111111111111111111</p>
+        <p>命令：</p>
+<blockquote>
+<p>sudo apt-get install samba<br>sudo vi /etc/samba/smb.conf</p>
+</blockquote>
+<p>配置文件末尾加上：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[share]</span><br><span class="line">comment = samba  #说明 没有意义</span><br><span class="line">browseable = yes</span><br><span class="line">path = /home/wwwroot/</span><br><span class="line">create mask = 0777</span><br><span class="line">directory mask = 0777</span><br><span class="line">valid users = www  #用户，登陆用</span><br><span class="line">force user = root</span><br><span class="line">force group = root</span><br><span class="line">public = yes</span><br><span class="line">writable = yes</span><br><span class="line">available = yes</span><br></pre></td></tr></table></figure>
+<p>命令：</p>
+<blockquote>
+<p>sudo /etc/init.d restart</p>
+</blockquote>
+<p>添加samba用户</p>
+<blockquote>
+<p>sudo smbpasswd -a www<br>sudo smbpasswd -e www</p>
+</blockquote>
+<p>打开windows运行输入\192.169.0.120\share\<br>输入用户名和密码  </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mnmnwq.github.io/2018/02/19/修改mac的默认php/" data-id="cjjwkbjv100044hwq5bk666ba" class="article-share-link">Share</a>
+      <a data-url="http://mnmnwq.github.io/2018/07/22/ubuntu安装samba服务器，实现局域网目录共享/" data-id="cjjwkbjuv00004hwqh3udu2so" class="article-share-link">Share</a>
       
       
     </footer>
@@ -104,19 +118,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          解决虚拟机硬盘占用过大，导致物理机很卡的问题
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/02/15/first-one/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">first one</div>
+      <div class="article-nav-title">解决虚拟机硬盘占用过大，导致物理机很卡的问题</div>
     </a>
   
 </nav>
