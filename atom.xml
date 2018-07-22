@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://mnmnwq.github.io/"/>
-  <updated>2018-07-22T08:15:05.097Z</updated>
+  <updated>2018-07-22T08:15:56.542Z</updated>
   <id>http://mnmnwq.github.io/</id>
   
   <author>
@@ -21,17 +21,20 @@
     <link href="http://mnmnwq.github.io/2018/07/22/ubuntu%E5%AE%89%E8%A3%85samba%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E5%AE%9E%E7%8E%B0%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9B%AE%E5%BD%95%E5%85%B1%E4%BA%AB/"/>
     <id>http://mnmnwq.github.io/2018/07/22/ubuntu安装samba服务器，实现局域网目录共享/</id>
     <published>2018-07-22T08:09:12.000Z</published>
-    <updated>2018-07-22T08:15:05.097Z</updated>
+    <updated>2018-07-22T08:15:56.542Z</updated>
     
-    <content type="html"><![CDATA[<p>命令：<br> sudo apt-get install samba <br><br> sudo vi /etc/samba/smb.conf <br></p><p>配置文件末尾加上：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[share]</span><br><span class="line">comment = samba  #说明 没有意义</span><br><span class="line">browseable = yes</span><br><span class="line">path = /home/wwwroot/</span><br><span class="line">create mask = 0777</span><br><span class="line">directory mask = 0777</span><br><span class="line">valid users = www  #用户，登陆用</span><br><span class="line">force user = root</span><br><span class="line">force group = root</span><br><span class="line">public = yes</span><br><span class="line">writable = yes</span><br><span class="line">available = yes</span><br></pre></td></tr></table></figure><p>命令：</p><blockquote><p>sudo /etc/init.d restart</p></blockquote><p>添加samba用户</p><blockquote><p>sudo smbpasswd -a www<br>sudo smbpasswd -e www</p></blockquote><p>打开windows运行输入\192.169.0.120\share\<br>输入用户名和密码  </p>]]></content>
+    <content type="html"><![CDATA[<p>命令：</p><blockquote><p>sudo apt-get install samba<br>sudo vi /etc/samba/smb.conf </p></blockquote><p>配置文件末尾加上：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[share]</span><br><span class="line">comment = samba  #说明 没有意义</span><br><span class="line">browseable = yes</span><br><span class="line">path = /home/wwwroot/</span><br><span class="line">create mask = 0777</span><br><span class="line">directory mask = 0777</span><br><span class="line">valid users = www  #用户，登陆用</span><br><span class="line">force user = root</span><br><span class="line">force group = root</span><br><span class="line">public = yes</span><br><span class="line">writable = yes</span><br><span class="line">available = yes</span><br></pre></td></tr></table></figure><p>命令：</p><blockquote><p>sudo /etc/init.d restart</p></blockquote><p>添加samba用户</p><blockquote><p>sudo smbpasswd -a www<br>sudo smbpasswd -e www</p></blockquote><p>打开windows运行输入\192.169.0.120\share\<br>输入用户名和密码  </p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;命令：&lt;br&gt; sudo apt-get install samba &lt;br&gt;&lt;br&gt; sudo vi /etc/samba/smb.conf &lt;br&gt;&lt;/p&gt;
+        &lt;p&gt;命令：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo apt-get install samba&lt;br&gt;sudo vi /etc/samba/smb.conf &lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;配置文件末尾加上：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;
+&lt;figure class=&quot;high
       
     
     </summary>

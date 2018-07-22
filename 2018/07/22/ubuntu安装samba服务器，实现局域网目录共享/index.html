@@ -7,17 +7,17 @@
   
   <title>ubuntu安装samba服务器，实现局域网目录共享 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="命令： sudo apt-get install samba  sudo vi /etc/samba/smb.conf  配置文件末尾加上： 123456789101112[share]comment = samba  #说明 没有意义browseable = yespath = /home/wwwroot/create mask = 0777directory mask = 0777valid">
+  <meta name="description" content="命令：  sudo apt-get install sambasudo vi /etc/samba/smb.conf   配置文件末尾加上： 123456789101112[share]comment = samba  #说明 没有意义browseable = yespath = /home/wwwroot/create mask = 0777directory mask = 0777valid">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ubuntu安装samba服务器，实现局域网目录共享">
 <meta property="og:url" content="http://mnmnwq.github.io/2018/07/22/ubuntu安装samba服务器，实现局域网目录共享/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="命令： sudo apt-get install samba  sudo vi /etc/samba/smb.conf  配置文件末尾加上： 123456789101112[share]comment = samba  #说明 没有意义browseable = yespath = /home/wwwroot/create mask = 0777directory mask = 0777valid">
+<meta property="og:description" content="命令：  sudo apt-get install sambasudo vi /etc/samba/smb.conf   配置文件末尾加上： 123456789101112[share]comment = samba  #说明 没有意义browseable = yespath = /home/wwwroot/create mask = 0777directory mask = 0777valid">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-22T08:15:05.097Z">
+<meta property="og:updated_time" content="2018-07-22T08:15:56.542Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu安装samba服务器，实现局域网目录共享">
-<meta name="twitter:description" content="命令： sudo apt-get install samba  sudo vi /etc/samba/smb.conf  配置文件末尾加上： 123456789101112[share]comment = samba  #说明 没有意义browseable = yespath = /home/wwwroot/create mask = 0777directory mask = 0777valid">
+<meta name="twitter:description" content="命令：  sudo apt-get install sambasudo vi /etc/samba/smb.conf   配置文件末尾加上： 123456789101112[share]comment = samba  #说明 没有意义browseable = yespath = /home/wwwroot/create mask = 0777directory mask = 0777valid">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -90,7 +90,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>命令：<br> sudo apt-get install samba <br><br> sudo vi /etc/samba/smb.conf <br></p>
+        <p>命令：</p>
+<blockquote>
+<p>sudo apt-get install samba<br>sudo vi /etc/samba/smb.conf </p>
+</blockquote>
 <p>配置文件末尾加上：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[share]</span><br><span class="line">comment = samba  #说明 没有意义</span><br><span class="line">browseable = yes</span><br><span class="line">path = /home/wwwroot/</span><br><span class="line">create mask = 0777</span><br><span class="line">directory mask = 0777</span><br><span class="line">valid users = www  #用户，登陆用</span><br><span class="line">force user = root</span><br><span class="line">force group = root</span><br><span class="line">public = yes</span><br><span class="line">writable = yes</span><br><span class="line">available = yes</span><br></pre></td></tr></table></figure>
 <p>命令：</p>
@@ -106,7 +109,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mnmnwq.github.io/2018/07/22/ubuntu安装samba服务器，实现局域网目录共享/" data-id="cjjwkhi8200046gwqcxbapjke" class="article-share-link">Share</a>
+      <a data-url="http://mnmnwq.github.io/2018/07/22/ubuntu安装samba服务器，实现局域网目录共享/" data-id="cjjwkiqmb00046owqyrrx17ph" class="article-share-link">Share</a>
       
       
     </footer>
