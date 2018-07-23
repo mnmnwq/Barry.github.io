@@ -91,23 +91,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>命令：<br> <pre><br> sudo apt-get install samba<br> sudo vi /etc/samba/smb.conf </pre></p>
+        <p>命令：<br> sudo apt-get install samba<br> sudo vi /etc/samba/smb.conf </p>
 <p>配置文件末尾加上：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[share]</span><br><span class="line">comment = samba  #说明 没有意义</span><br><span class="line">browseable = yes</span><br><span class="line">path = /home/wwwroot/</span><br><span class="line">create mask = 0777</span><br><span class="line">directory mask = 0777</span><br><span class="line">valid users = www  #用户，登陆用</span><br><span class="line">force user = root</span><br><span class="line">force group = root</span><br><span class="line">public = yes</span><br><span class="line">writable = yes</span><br><span class="line">available = yes</span><br></pre></td></tr></table></figure>
-<p>命令：</p>
-<blockquote>
-<p>sudo /etc/init.d restart</p>
-</blockquote>
-<p>添加samba用户</p>
-<blockquote>
-<p>sudo smbpasswd -a www<br>sudo smbpasswd -e www</p>
-</blockquote>
+<p>命令：<br> sudo /etc/init.d restart</p>
+<p>添加samba用户<br> sudo smbpasswd -a www<br> sudo smbpasswd -e www</p>
 <p>打开windows运行输入\192.169.0.120\share\<br>输入用户名和密码  </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mnmnwq.github.io/2018/07/22/ubuntu安装samba服务器，实现局域网目录共享/" data-id="cjjxm1rif0002wuwqca3ieqiv" class="article-share-link">Share</a>
+      <a data-url="http://mnmnwq.github.io/2018/07/22/ubuntu安装samba服务器，实现局域网目录共享/" data-id="cjjxm4j7d0002x8wqtwdpfdtb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -157,7 +151,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mnmnwq.github.io/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/" data-id="cjjxm1rih0004wuwqdb4nrox6" class="article-share-link">Share</a>
+      <a data-url="http://mnmnwq.github.io/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/" data-id="cjjxm4j7f0003x8wqcimucfrf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -194,7 +188,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mnmnwq.github.io/2018/02/19/修改mac的默认php/" data-id="cjjxm1rig0003wuwqhf4jx1ds" class="article-share-link">Share</a>
+      <a data-url="http://mnmnwq.github.io/2018/02/19/修改mac的默认php/" data-id="cjjxm4j7f0004x8wqjgjqce8n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -231,7 +225,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mnmnwq.github.io/2018/02/15/first-one/" data-id="cjjxm1ri90000wuwqp8ck8mmz" class="article-share-link">Share</a>
+      <a data-url="http://mnmnwq.github.io/2018/02/15/first-one/" data-id="cjjxm4j790000x8wqr0pzmo8i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -276,7 +270,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mnmnwq.github.io/2018/02/15/hello-world/" data-id="cjjxm1rid0001wuwqf1cinoeh" class="article-share-link">Share</a>
+      <a data-url="http://mnmnwq.github.io/2018/02/15/hello-world/" data-id="cjjxm4j7c0001x8wqkp44dlze" class="article-share-link">Share</a>
       
       
     </footer>
