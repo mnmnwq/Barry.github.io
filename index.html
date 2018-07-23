@@ -112,7 +112,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mnmnwq.github.io/2018/07/22/ubuntu安装samba服务器，实现局域网目录共享/" data-id="cjjxmajyt0004xvwqtnfakkqv" class="article-share-link">Share</a>
+      <a data-url="http://mnmnwq.github.io/2018/07/22/ubuntu安装samba服务器，实现局域网目录共享/" data-id="cjjxp1tiv0004wgwqzqiqdk8y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -150,19 +150,20 @@
 </ul>
 <p>解决方法如下：【这个解决方法是我在别人的博客上找的，希望能帮到别人】</p>
 <p>处理vmdk目录下的vmem文件，vmem文件相当于系统里的分页文件，虚拟机开机的时候生成这个文件硬盘读写导致硬盘灯常亮，很卡很慢，这个文件在关闭虚拟机的时候又会自动删除。<br>如果物理机内存足够大的话可以把这个文件去掉。</p>
-<p>（1）对所有的虚拟机“禁用”vmem文件操作：</p>
-<blockquote>
-<p>   修改C:\Documents and Settings\All Users\Application &gt;Data\VMware\VMware Workstation\settings.ini文件，（如果没有这个文件的话手工添加一个），在其中加上一行：mainMem.useNamedFile = “FALSE”</p>
-</blockquote>
-<p>（2）对特定的虚拟机“禁用”vmem文件</p>
-<blockquote>
-<p>   修改特定虚拟机目录下的vmx文件，在其中加上一行：mainMem.useNamedFile = “FALSE”<br>    这样就不会产生VMEM文件了，还添加了以下内容优化了虚拟机（主机要有足够的物理内存）<br>    sched.mem.pshare.enable = “FALSE”<br>    MemTrimRate = 0</p>
-</blockquote>
+<ol>
+<li>对所有的虚拟机“禁用”vmem文件操作：</li>
+</ol>
+<p>修改C:\Documents and Settings\AllUsers\Application &gt;Data\VMware\VMware Workstation\settings.in 文件，（如果没有这个文件的话手工添加一个），在其中加上一行：mainMem.useNamedFile = “FALSE” </p>
+<ol>
+<li><p>对特定的虚拟机“禁用”vmem文件</p>
+<p>修改特定虚拟机目录下的vmx文件，在其中加上一行：mainMem.useNamedFile = “FALSE”<br> 这样就不会产生VMEM文件了，还添加了以下内容优化了虚拟机（主机要有足够的物理内存）<br> sched.mem.pshare.enable = “FALSE”<br> MemTrimRate = 0</p>
+</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mnmnwq.github.io/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/" data-id="cjjxmajyv0006xvwqzqjxf9aq" class="article-share-link">Share</a>
+      <a data-url="http://mnmnwq.github.io/2018/03/23/解决虚拟机硬盘占用过大，导致物理机很卡的问题/" data-id="cjjxp1tix0006wgwqamf9h3o7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -199,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mnmnwq.github.io/2018/02/19/修改mac的默认php/" data-id="cjjxmajyu0005xvwqekwx7tag" class="article-share-link">Share</a>
+      <a data-url="http://mnmnwq.github.io/2018/02/19/修改mac的默认php/" data-id="cjjxp1tiw0005wgwquzabqh7k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -236,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mnmnwq.github.io/2018/02/15/first-one/" data-id="cjjxmajym0000xvwq8hush5ia" class="article-share-link">Share</a>
+      <a data-url="http://mnmnwq.github.io/2018/02/15/first-one/" data-id="cjjxp1tip0000wgwq0mswowyj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -281,7 +282,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mnmnwq.github.io/2018/02/15/hello-world/" data-id="cjjxmajyq0002xvwqj2hqbyav" class="article-share-link">Share</a>
+      <a data-url="http://mnmnwq.github.io/2018/02/15/hello-world/" data-id="cjjxp1tit0002wgwqivqhsmpj" class="article-share-link">Share</a>
       
       
     </footer>
